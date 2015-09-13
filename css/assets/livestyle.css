@@ -4,7 +4,7 @@
 	z-index: 10;
 	padding: 15px 10px;
 	width: 200px;
-	top: 36px;
+	top: 33px;
 	right: 24px;
 	box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.30);
 	font-family: 'PT Sans', arial, sans-serif;
@@ -76,7 +76,8 @@
 .qt-livestyle__editor-file {
 	background: #26bb9d;
 	color: #fff;
-	padding: 5px;
+	padding: 8px 5px 7px;
+	line-height: 1;
 	border-radius: 4px;
 	margin: 3px 0 0 -5px;
 	position: relative;
@@ -86,7 +87,7 @@
 	position: absolute;
 	content: '▾';
 	right: 7px;
-	top: 3px;
+	top: 8px;
 }
 
 .qt-livestyle__rv {

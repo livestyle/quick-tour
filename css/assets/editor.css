@@ -36,6 +36,7 @@
 	color: #fff;
 	padding: 7px 10px;
 	float: left;
+	background: #2b303b;
 }
 
 .qt-editor__tab[data-source="usb"] {
