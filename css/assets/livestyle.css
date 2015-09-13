@@ -1,0 +1,124 @@
+.qt-livestyle {
+	position: absolute;
+	background: #fff;
+	z-index: 10;
+	padding: 15px 10px;
+	width: 200px;
+	top: 36px;
+	right: 24px;
+	box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.30);
+	font-family: 'PT Sans', arial, sans-serif;
+	color: #2F485F;
+}
+
+.qt-livestyle::before {
+	content: '';
+	background: inherit;
+	width: 10px;
+	height: 10px;
+	transform: rotate(45deg);
+	display: block;
+	position: absolute;
+	top: -5px;
+	right: 20px;
+}
+
+.qt-livestyle__main {
+	position: relative;
+}
+
+.qt-livestyle__title {
+	margin: 0;
+	font-size: 1.5em;
+	line-height: 1;
+	font-weight: normal;
+}
+
+.qt-livestyle__main .qt-livestyle__title {
+	margin-bottom: 11px;
+}
+
+.qt-livestyle__toggler {
+	position: absolute;
+	top: -2px;
+	right: 0;
+	width: 40px;
+	height: 16px;
+	background: #344a5d;
+	color: #26bb9d;
+	border-radius: 8px;
+	transition-property: background-color, color;
+	transition-duration: 0.2s;
+}
+
+.qt-livestyle__toggler::after {
+	width: 12px;
+	height: 12px;
+	content: '';
+	display: block;
+	border-radius: 6px;
+	background: currentColor;
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	transition: transform 0.2s;
+}
+
+.qt-livestyle__toggler::before {
+	content: 'ON';
+	position: absolute;
+	top: 4px;
+	left: 9px;
+	font-size: 9px;
+	transition: transform 0.2s;
+}
+
+.qt-livestyle__editor-file {
+	background: #26bb9d;
+	color: #fff;
+	padding: 5px;
+	border-radius: 4px;
+	margin: 3px 0 0 -5px;
+	position: relative;
+}
+
+.qt-livestyle__editor-file::after {
+	position: absolute;
+	content: '▾';
+	right: 7px;
+	top: 3px;
+}
+
+.qt-livestyle__rv {
+	position: relative;
+	top: 15px;
+	background: #e57c2c;
+	color: #fff;
+	padding: 10px;
+	margin: 0 -10px;
+}
+
+.qt-livestyle__rv .qt-livestyle__toggler {
+	top: 10px;
+	right: 10px;
+	background: #fff;
+	color: #e57c2c;
+}
+
+.qt-livestyle__rv .qt-livestyle__toggler::after {
+	background: #e57c2c;
+}
+
+.qt-livestyle__toggler[data-state="disabled"] {
+	background: #f29a26;
+	color: #fff;
+}
+
+.qt-livestyle__toggler[data-state="disabled"]::after {
+	transform: translateX(-24px);
+}
+
+.qt-livestyle__toggler[data-state="disabled"]::before {
+	content: 'OFF';
+	transform: translateX(9px);
+}

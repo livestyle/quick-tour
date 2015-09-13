@@ -1,0 +1,20 @@
+@import url(assets/browser.css);
+@import url(assets/livestyle.css);
+@import url(assets/editor.css);
+@import url(assets/devices.css);
+
+.qt-app-icon__group {
+	position: absolute;
+	z-index: 10;
+	left: 13px;
+}
+
+.qt-app-icon {
+	width: 11px;
+	height: 11px;
+	background: #8e8e93;
+	border: 1px solid #6e6f76;
+	display: inline-block;
+	margin-right: 6px;
+	border-radius: 100%;
+}
