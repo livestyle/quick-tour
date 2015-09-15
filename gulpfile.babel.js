@@ -1,3 +1,4 @@
+import path from 'path';
 import browserify from 'browserify';
 import watchify from 'watchify';
 import extend from 'xtend';
@@ -13,18 +14,25 @@ const dest = './out';
 
 gulp.task('js', () => {
 	return gulp.src('./js/**/*.js', {base: './', read: false})
-	.pipe(js())
+	.pipe(js({standalone: true}))
 	.pipe(buffer())
 	.pipe(sourcemaps.init({loadMaps: true}))
 	.pipe(sourcemaps.write('./'))
 	.pipe(gulp.dest(dest));
 });
 
-gulp.task('watch', () => {
-	gulp.watch('./js/**/*.js', ['js']);
+gulp.task('html', () => {
+	return gulp.src(['./*.html', './test/**/*.html'], {base: './', buffer: false})
+	.pipe(gulp.dest(dest));
 });
 
-gulp.task('default', ['js']);
+gulp.task('watch', ['build'], () => {
+	gulp.watch('./js/**/*.js', ['js']);
+	gulp.watch(['./*.html', './test/**/*.html'], ['html']);
+});
+
+gulp.task('build', ['js', 'html']);
+gulp.task('default', ['build']);
 
 //////////////////////////////
 
@@ -42,6 +50,12 @@ function jsBundle(file, options={}) {
 			detectGlobals: false,
 			transform: ['babelify']
 		}, options);
+
+		if (options.standalone === true) {
+			options.standalone = path.basename(file.path)
+				.replace(/\.\w+/, '')
+				.replace(/\-(\w)/g, (str, c) => c.toUpperCase());
+		}
 
 		if (isWatching) {
 			options = extend(options, watchify.args);
