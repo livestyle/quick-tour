@@ -89,13 +89,13 @@ export function setTransform(elem, transform) {
 	elem.style[transformProp] = transform;
 }
 
-export function removeElem(elem) {
+export function removeElement(elem) {
 	if (elem && elem.parentNode) {
 		elem.parentNode.removeChild(elem);
 	}
 }
 
-export function elem(name, className) {
+export function createElement(name, className) {
 	var elem = document.createElement(name);
 	if (className) {
 		elem.className = className;
@@ -143,4 +143,8 @@ export function toDom(html) {
 	var result = div.firstChild;
 	div.removeChild(result);
 	return result;
+}
+
+export function minmax(value, min, max) {
+	return Math.min(Math.max(value, min), max);
 }
