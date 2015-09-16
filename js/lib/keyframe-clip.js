@@ -6,6 +6,7 @@
 import {setTransform, setStyle} from './utils';
 import {easings} from './tween';
 import extend from 'xtend';
+import AbstractElementClip from './abstract-element-clip';
 
 var propMappings = {
 	x: 'translateX',
@@ -14,21 +15,11 @@ var propMappings = {
 
 var defaultEasing = 'linear';
 
-export default class KeyframeClip {
+export default class KeyframeClip extends AbstractElementClip {
 	constructor(elem, keyframes) {
+		super(elem);
 		this._keyframes = null;
-		this._hidden = false;
 		this._duration = null;
-
-		if (typeof elem === 'string') {
-			elem = document.querySelector(elem);
-		}
-
-		if (!elem || !('nodeType' in elem)) {
-			throw new TypeError('No element given or element is not a DOM node');
-		}
-
-		this.elem = elem;
 		this.keyframes = keyframes;
 	}
 
@@ -49,24 +40,6 @@ export default class KeyframeClip {
 				: 0;
 		}
 		return this._duration;
-	}
-
-	show() {
-		if (this._hidden) {
-			this.elem.style.visibility = 'visible';
-			this._hidden = false;
-		}
-	}
-
-	hide() {
-		if (!this._hidden) {
-			this.elem.style.visibility = 'hidden';
-			this._hidden = true;
-		}
-	}
-
-	get hidden() {
-		return this._hidden;
 	}
 
 	render(time) {

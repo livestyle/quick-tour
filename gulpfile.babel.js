@@ -13,9 +13,10 @@ const production = ~process.argv.indexOf('--production');
 const dest = './out';
 
 gulp.task('js', () => {
-	return gulp.src('./js/**/*.js', {base: './', read: false})
+	var stream;
+	return stream = gulp.src('./js/**/*.js', {base: './', read: false})
 	.pipe(js({standalone: true}))
-	.pipe(buffer())
+	.pipe(buffer()).once('error', (err) => stream.emit(err))
 	.pipe(sourcemaps.init({loadMaps: true}))
 	.pipe(sourcemaps.write('./'))
 	.pipe(gulp.dest(dest));
