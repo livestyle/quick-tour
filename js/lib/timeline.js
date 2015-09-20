@@ -5,12 +5,44 @@
  * animation of specific object.
  */
 'use strict';
+import EventEmitter from './event-emitter';
 
-export default class Timeline {
+export default class Timeline extends EventEmitter {
 	constructor() {
+		super();
 		this.clips = [];
 		this._timecode = 0;
 		this._duration = null;
+		this._state = 'pause';
+		this._startTime = 0;
+		this._loop = (time) => {
+			if (!this._startTime) {
+				this._startTime = time;
+			}
+
+			this.timecode += time - this._startTime;
+			if (this.state === 'play' && this.timecode < this.duration) {
+				requestAnimationFrame(this._loop);
+			} else {
+				this.pause();
+			}
+		};
+	}
+
+	play() {
+		if (this.state !== 'play') {
+			this._state = 'play';
+			this._startTime = 0;
+			requestAnimationFrame(this._startTime);
+			this.emit('play');
+		}
+	}
+
+	pause() {
+		if (this.state !== 'pause') {
+			this._state = 'pause';
+			this.emit('pause');
+		}
 	}
 
 	get duration() {
@@ -26,8 +58,14 @@ export default class Timeline {
 	}
 
 	set timecode(value) {
-		this._timecode = Math.min(Math.max(+value, 0), this.duration);
-		this.render(this._timecode);
+		value = Math.min(Math.max(+value, 0), this.duration);
+		if (value !== this.timecode) {
+			this.render(this._timecode = value);
+		}
+	}
+
+	get state() {
+		return this._state;
 	}
 
 	_ix(clip) {
@@ -43,6 +81,7 @@ export default class Timeline {
 		if (this._ix(clip) === -1) {
 			this.clips.push({clip, start, duration});
 			this._duration = null;
+			this.emit('update');
 		}
 	}
 
@@ -51,6 +90,7 @@ export default class Timeline {
 		if (ix !== -1) {
 			this.clips.splice(ix, 1);
 			this._duration = null;
+			this.emit('update');
 		}
 	}
 
@@ -64,6 +104,7 @@ export default class Timeline {
 				item.clip.hide();
 			}
 		});
+		this.emit('render');
 	}
 
 	clipDuration(clip) {

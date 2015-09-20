@@ -4,7 +4,7 @@
 'use strict';
 
 import extend from 'xtend';
-import AbstractElementClip from './abstract-element-clip';
+import AbstractClip from './abstract';
 import {setStyle, setTransform, toArray, createElement, minmax} from './utils';
 import {easings} from './tween';
 
@@ -14,7 +14,7 @@ var defaultOptions = {
 	easing: 'linear'
 };
 
-export default class TextReavealClip extends AbstractElementClip {
+export default class TextReavealClip extends AbstractClip {
 	constructor(elem, options={}) {
 		super(elem);
 		this.options = options = extend(defaultOptions, options);

@@ -3,7 +3,7 @@
  */
 'use strict';
 
-export default class AbstractElementClip {
+export default class AbstractClip {
 	constructor(elem) {
 		if (typeof elem === 'string') {
 			elem = document.querySelector(elem);

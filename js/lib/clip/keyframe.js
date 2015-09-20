@@ -6,7 +6,7 @@
 import {setTransform, setStyle} from './utils';
 import {easings} from './tween';
 import extend from 'xtend';
-import AbstractElementClip from './abstract-element-clip';
+import AbstractClip from './abstract';
 
 var propMappings = {
 	x: 'translateX',
@@ -15,7 +15,7 @@ var propMappings = {
 
 var defaultEasing = 'linear';
 
-export default class KeyframeClip extends AbstractElementClip {
+export default class KeyframeClip extends AbstractClip {
 	constructor(elem, keyframes) {
 		super(elem);
 		this._keyframes = null;

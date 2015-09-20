@@ -3,7 +3,7 @@
  */
 'use strict';
 import extend from 'xtend';
-import AbstractElementClip from './abstract-element-clip';
+import AbstractClip from './abstract';
 
 var defaultOptions = {
 	beforeDelay: 100,   // delay before input start
@@ -11,7 +11,7 @@ var defaultOptions = {
 	afterDelay: 100     // delay after all characters are putted 
 };
 
-export default class TextInputClip extends AbstractElementClip {
+export default class TextInputClip extends AbstractClip {
 	constructor(elem, inputValue, options={}) {
 		super(elem);
 		this.initialValue = this.elem.innerHTML;

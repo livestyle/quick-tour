@@ -3,9 +3,9 @@
  * on given time
  */
 'use strict';
-import AbstractElementClip from './abstract-element-clip';
+import AbstractClip from './abstract';
 
-export default class StateClip extends AbstractElementClip {
+export default class StateClip extends AbstractClip {
 	constructor(elem, keyframes) {
 		super(elem);
 		this.keyframes = Object.keys(keyframes)
