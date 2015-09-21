@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>LiveStyle quick tour</title>
+	<link rel="stylesheet" href="./css/quick-tour.css" />
+	<link rel="stylesheet" href="./css/debug.css" />
+</head>
+<body>
+	<section class="qt">
+		<div class="qt-screen">
+			<div class="qt-slide qt-slide1">
+				<h3 class="qt-text-header">LiveStyle</h3>
+				<p><span class="qt-text">is a unique tool for live <em>bi-directional</em> stylesheet editing</span></p>
+			</div>
+		</div>
+	</section>
+	<section class="debug-controls">
+		<button name="playback"></button>
+		<input type="range" name="progress" min="0" value="0" />
+		<input type="text" name="timecode" value="0" />
+	</section>
+	<script src="./js/quick-tour.js"></script>
+	<script src="./js/debug-controls.js"></script>
+	<script>
+		'use strict';
+		debugControls('.debug-controls', quickTour('.qt'));
+	</script>
+</body>
+</html>

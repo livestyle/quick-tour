@@ -1,7 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
 @import url(assets/browser.css);
 @import url(assets/livestyle.css);
 @import url(assets/editor.css);
 @import url(assets/devices.css);
+@import url(assets/slides.css);
+
+p {
+	margin-top: 0;
+}
+
+.qt {
+	position: relative;
+	background: #26bb9d;
+	overflow: hidden;
+	color: #fff;
+	font-size: 16px;
+	font-family: Lato, Tahoma, sans-serif;
+}
+
+.qt-screen {
+	width: 960px;
+	height: 550px;
+	position: relative;
+	margin: 0 auto;
+}
 
 .qt-app-icon__group {
 	position: absolute;
@@ -17,4 +40,20 @@
 	display: inline-block;
 	margin-right: 6px;
 	border-radius: 100%;
+}
+
+.qt-shade {
+	position: absolute;
+	background: #26bb9d;
+	display: block;
+}
+
+.qt-shade::before {
+	content: '';
+	display: block;
+	width: 100px;
+	height: 100%;
+	left: -100px;
+	position: absolute;
+	background-image: linear-gradient(to right, rgba(38, 187, 157, 0.0), #26bb9d);
 }

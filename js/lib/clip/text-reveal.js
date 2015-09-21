@@ -5,8 +5,8 @@
 
 import extend from 'xtend';
 import AbstractClip from './abstract';
-import {setStyle, setTransform, toArray, createElement, minmax} from './utils';
-import {easings} from './tween';
+import {setStyle, setTransform, toArray, createElement, minmax} from '../utils';
+import {easings} from '../tween';
 
 var defaultOptions = {
 	duration: 300,

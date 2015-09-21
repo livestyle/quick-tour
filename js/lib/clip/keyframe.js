@@ -3,10 +3,10 @@
  * and interpolates values between them
  */
 'use strict';
-import {setTransform, setStyle} from './utils';
-import {easings} from './tween';
 import extend from 'xtend';
 import AbstractClip from './abstract';
+import {setTransform, setStyle} from '../utils';
+import {easings} from '../tween';
 
 var propMappings = {
 	x: 'translateX',
@@ -95,7 +95,15 @@ function resolveKeyframes(kf) {
 	var prevLookup = {opacity: 1};
 
 	if (!Array.isArray(kf)) {
-		kf = Object.keys(kf).map(key => { return {time: +key, props: kf[key]}; });
+		let prevTime = 0;
+		kf = Object.keys(kf).map(key => {
+			var time = +key;
+			if (key[0] === '+') {
+				time += prevTime;
+			}
+			prevTime = time;
+			return {time, props: kf[key]}; 
+		});
 	}
 
 	return kf

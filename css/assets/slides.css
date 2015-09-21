@@ -1,0 +1,35 @@
+.qt-text {
+	margin: 0 0 1.5em;
+	line-height: 1.4;
+}
+
+.qt-text-header {
+	font-size: 5em;
+	margin: 0 0 0.2em;
+	line-height: 1;
+	font-weight: normal;
+	/* display: inline-block; */
+}
+
+.qt-text-subheader {
+	font-size: 1.5em;
+	line-height: 1;
+	font-weight: normal;
+	margin: 0;
+}
+
+.qt-slide {
+	visibility: hidden;
+}
+
+/* Slide 1 */
+[data-qt-state="slide1"] .qt-slide1 {
+	visibility: visible;
+}
+
+.qt-slide1 {
+	text-align: center;
+	position: relative;
+	top: 50%;
+	margin-top: -5em;
+}

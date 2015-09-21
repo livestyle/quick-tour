@@ -8,19 +8,26 @@
 import EventEmitter from './event-emitter';
 
 export default class Timeline extends EventEmitter {
-	constructor() {
+	constructor(elem) {
 		super();
+
+		if (typeof elem === 'string') {
+			elem = document.querySelector(elem);
+		}
+
+		this.elem = elem;
 		this.clips = [];
 		this._timecode = 0;
 		this._duration = null;
 		this._state = 'pause';
-		this._startTime = 0;
+		this._prevTime = 0;
 		this._loop = (time) => {
-			if (!this._startTime) {
-				this._startTime = time;
+			if (!this._prevTime) {
+				this._prevTime = time;
 			}
 
-			this.timecode += time - this._startTime;
+			this.timecode += time - this._prevTime;
+			this._prevTime = time;
 			if (this.state === 'play' && this.timecode < this.duration) {
 				requestAnimationFrame(this._loop);
 			} else {
@@ -32,16 +39,27 @@ export default class Timeline extends EventEmitter {
 	play() {
 		if (this.state !== 'play') {
 			this._state = 'play';
-			this._startTime = 0;
-			requestAnimationFrame(this._startTime);
-			this.emit('play');
+			this._prevTime = 0;
+			requestAnimationFrame(this._loop);
+			this.emit('state', 'play');
 		}
 	}
 
 	pause() {
 		if (this.state !== 'pause') {
 			this._state = 'pause';
-			this.emit('pause');
+			this.emit('state', 'pause');
+		}
+	}
+
+	toggle() {
+		if (this.state === 'play') {
+			this.pause();
+		} else {
+			if (this.timecode === this.duration) {
+				this.timecode = 0;
+			}
+			this.play();
 		}
 	}
 
@@ -77,8 +95,14 @@ export default class Timeline extends EventEmitter {
 		return -1;
 	}
 
-	add(clip, start, duration) {
+	add(start, clip) {
+		if (typeof start === 'object') {
+			clip = start;
+			start = 0;
+		}
+
 		if (this._ix(clip) === -1) {
+			var duration = clip.duration;
 			this.clips.push({clip, start, duration});
 			this._duration = null;
 			this.emit('update');
@@ -97,14 +121,20 @@ export default class Timeline extends EventEmitter {
 	render(timecode) {
 		var self = this;
 		this.clips.forEach((item, i) => {
-			var duration = self.clipDuration(i);
-			if (item.start >= timecode && (!duration || item.start + duration <= timecode)) {
-				item.clip.render(timecode - item.start);
-			} else if (item.clip.hide) {
-				item.clip.hide();
+			var clipTime = Math.max(0, timecode - item.start);
+			if (item.duration) {
+				clipTime = Math.min(item.duration, clipTime);
 			}
+			item.clip.render(clipTime);
+			// if (item.start >= timecode && (!duration || item.start + duration <= timecode)) {
+			// 	item.clip.render(timecode - item.start);
+			// } 
+
+			// else if (item.clip.hide) {
+			// 	item.clip.hide();
+			// }
 		});
-		this.emit('render');
+		this.emit('render', timecode);
 	}
 
 	clipDuration(clip) {
@@ -113,6 +143,6 @@ export default class Timeline extends EventEmitter {
 		}
 
 		var item = this.clips[clip];
-		return item ? item.duration || item.clip.duration || 0 : -1;
+		return item ? item.clip.duration || 0 : -1;
 	}
 };

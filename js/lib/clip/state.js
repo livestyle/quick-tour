@@ -19,7 +19,7 @@ export default class StateClip extends AbstractClip {
 		this.render(0);
 	}
 
-	duration() {
+	get duration() {
 		return this.keyframes[this.keyframes.length - 1].time;
 	}
 
