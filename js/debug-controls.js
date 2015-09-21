@@ -5,6 +5,22 @@ export default function(elem, timeline) {
 		elem = document.querySelector(elem);
 	}
 
+	var startTime = location.hash.replace('#', '');
+	if (!startTime) {
+		startTime = 0;
+	}
+
+	var togglePlayback = () => {
+		if (timeline.state === 'play') {
+			timeline.pause();
+		} else {
+			if (timeline.timecode === timeline.duration) {
+				timeline.timecode = startTime;
+			}
+			timeline.play();
+		}
+	};
+
 	var playbackBtn = elem.querySelector('button[name="playback"]');
 	var progress = elem.querySelector('input[name="progress"]');
 	var timecode = elem.querySelector('input[name="timecode"]');
@@ -16,8 +32,14 @@ export default function(elem, timeline) {
 	})
 	.on('update', () => progress.max = timeline.duration);
 
-	playbackBtn.addEventListener('click', evt => timeline.toggle());
-	document.addEventListener('keyup', evt => evt.keyCode === 32 && timeline.toggle());
+	playbackBtn.addEventListener('click', togglePlayback);
+	document.addEventListener('keydown', evt => {
+		if (evt.keyCode === 32) {
+			togglePlayback();
+			evt.preventDefault();
+			evt.stopPropagation();
+		}
+	});
 	progress.addEventListener('input', function(evt) {
 		if (timeline.state === 'pause') {
 			timeline.timecode = +this.value;
@@ -25,6 +47,9 @@ export default function(elem, timeline) {
 	});
 
 	progress.max = timeline.duration;
+
+	
+	timeline.timecode = +startTime;
 };
 
 function debugRects(elem) {

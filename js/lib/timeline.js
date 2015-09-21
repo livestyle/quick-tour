@@ -17,7 +17,7 @@ export default class Timeline extends EventEmitter {
 
 		this.elem = elem;
 		this.clips = [];
-		this._timecode = 0;
+		this._timecode = -1;
 		this._duration = null;
 		this._state = 'pause';
 		this._prevTime = 0;

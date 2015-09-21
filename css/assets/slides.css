@@ -22,6 +22,10 @@
 	visibility: hidden;
 }
 
+.qt-livestyle {
+	visibility: hidden;
+}
+
 /* Slide 1 */
 [data-qt-state="slide1"] .qt-slide1 {
 	visibility: visible;
@@ -32,4 +36,17 @@
 	position: relative;
 	top: 50%;
 	margin-top: -5em;
+}
+
+/* Slide 2 */
+[data-qt-state="slide2"] .qt-slide2 {
+	visibility: visible;
+}
+
+.qt-slide2 {
+	text-align: center;
+	position: relative;
+	top: 65px;
+	width: 580px;
+	margin: 0 auto;
 }

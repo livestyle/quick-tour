@@ -46,6 +46,8 @@ p {
 	position: absolute;
 	background: #26bb9d;
 	display: block;
+	padding: 2px;
+	margin: -2px;
 }
 
 .qt-shade::before {
@@ -56,4 +58,18 @@ p {
 	left: -100px;
 	position: absolute;
 	background-image: linear-gradient(to right, rgba(38, 187, 157, 0.0), #26bb9d);
+}
+
+.qt-browser, .qt-editor {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.qt-browser {
+	z-index: 1;
+}
+
+.qt-editor {
+	z-index: 2;
 }

@@ -4,7 +4,8 @@ import KeyframeClip from '../clip/keyframe';
 import TextRevealClip from '../clip/text-reveal';
 
 export default function(timeline) {
-	var elem = timeline.elem.querySelector('.qt-slide1');
+	var root = timeline.elem
+	var elem = root.querySelector('.qt-slide1');
 
 	var text1 = elem.querySelector('.qt-text-header');
 	var text2 = elem.querySelector('.qt-text');
@@ -20,5 +21,13 @@ export default function(timeline) {
 	timeline.add(5500, new KeyframeClip(text2, {
 		0: {opacity: 1},
 		500: {opacity: 0}
+	}));
+
+	timeline.add(0, new KeyframeClip(root.querySelector('.qt-browser'), {
+		0: {y: 600}
+	}));
+
+	timeline.add(0, new KeyframeClip(root.querySelector('.qt-editor'), {
+		0: {x: 700, y: 600}
 	}));
 }
