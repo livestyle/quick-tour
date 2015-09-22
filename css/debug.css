@@ -7,7 +7,9 @@
 }
 
 .debug-controls {
-	margin-top: 20px;
+	padding-top: 20px;
+	position: relative;
+	overflow: hidden;
 }
 
 .debug-controls [name=playback] {
@@ -23,9 +25,18 @@
 	content: 'Pause';
 }
 
-[name=progress] {
+.debug-controls [name=progress] {
 	width: 500px;
 	margin-right: 20px;
+	position: absolute;
+	left: 100px;
+	margin-top: 13px;
+}
+
+.debug-controls [name=timecode] {
+	position: absolute;
+	left: 630px;
+	margin-top: 10px;
 }
 
 .debug-rect {

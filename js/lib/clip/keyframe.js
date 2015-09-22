@@ -20,6 +20,7 @@ export default class KeyframeClip extends AbstractClip {
 		super(elem);
 		this._keyframes = null;
 		this._duration = null;
+		this._prevTime = null;
 		this.keyframes = keyframes;
 	}
 
@@ -44,6 +45,9 @@ export default class KeyframeClip extends AbstractClip {
 
 	render(time) {
 		time = Math.min(Math.max(0, time), this.duration);
+		if (time === this._prevTime) {
+			return;
+		}
 
 		// split keyframes in two parts: before and after current timecode
 		var prev = {}, next = {};
@@ -87,6 +91,7 @@ export default class KeyframeClip extends AbstractClip {
 		}
 
 		setStyle(this.elem, style, transform);
+		this._prevTime = time;
 	}
 }
 

@@ -32,24 +32,25 @@ export default class TextReavealClip extends AbstractClip {
 		var parentRect = parent.getBoundingClientRect();
 		var overallDistance = 0;
 		this.lines = toArray(this.elem.getClientRects()).map(rect => {
-			var distance = rect.right - rect.left + options.headSize;
-			overallDistance += distance;
 			var line = {
 				left: rect.left - parentRect.left,
 				top: rect.top - parentRect.top,
 				width: rect.right - rect.left,
-				height: rect.bottom - rect.top
+				height: rect.bottom - rect.top,
+				shade: createElement('span', 'qt-shade')
 			};
+			line.distance = line.width + options.headSize;
+			overallDistance += line.distance;
 
-			var shade = createElement('span', 'qt-shade');
 			var css = Object.keys(line).reduce((result, key) => {
 				result[key] = line[key] + 'px';
 				return result;
 			}, {});
-			setStyle(shade, css);
-			parent.appendChild(shade);
-			line.distance = distance;
-			line.shade = shade;
+			if (options.css) {
+				css = extend(css, options.css);
+			}
+			setStyle(line.shade, css);
+			parent.appendChild(line.shade);
 
 			return line;
 		});

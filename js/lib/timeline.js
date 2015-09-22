@@ -26,13 +26,20 @@ export default class Timeline extends EventEmitter {
 				this._prevTime = time;
 			}
 
-			this.timecode += time - this._prevTime;
-			this._prevTime = time;
-			if (this.state === 'play' && this.timecode < this.duration) {
+			var delta = time - this._prevTime;
+			if (this.state === 'play' && this.timecode + delta < this.duration) {
 				requestAnimationFrame(this._loop);
 			} else {
 				this.pause();
 			}
+
+			this.timecode += delta;
+			this._prevTime = time;
+			// if (this.state === 'play' && this.timecode < this.duration) {
+			// 	requestAnimationFrame(this._loop);
+			// } else {
+			// 	this.pause();
+			// }
 		};
 	}
 

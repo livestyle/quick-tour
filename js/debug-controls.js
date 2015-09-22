@@ -47,8 +47,6 @@ export default function(elem, timeline) {
 	});
 
 	progress.max = timeline.duration;
-
-	
 	timeline.timecode = +startTime;
 };
 
