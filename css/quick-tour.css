@@ -68,11 +68,11 @@ p {
 }
 
 .qt-browser {
-	z-index: 2;
+	z-index: 3;
 }
 
 .qt-editor {
-	z-index: 3;
+	z-index: 2;
 }
 
 .qt-focus-ring {

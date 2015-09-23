@@ -2,6 +2,7 @@
 
 import KeyframeClip from '../clip/keyframe';
 import TextRevealClip from '../clip/text-reveal';
+import DrawPathClip from '../clip/draw-path';
 import fade from '../effects/fade';
 
 function time(value) {
@@ -33,6 +34,17 @@ export default function(timeline) {
 		duration: 2000, 
 		css: {'z-index': 3}
 	}));
-	timeline.add(time(4600), new TextRevealClip(text2, {duration: 1500}));
+	timeline.add(time(6600), new TextRevealClip(text2, {duration: 1500}));
 
+	timeline.add(time(4100), new DrawPathClip('.qt-browser-line1 path', {
+		duration: 900, 
+		transition: 'inOutCubic'
+	}));
+
+	timeline.add(time(8000), new DrawPathClip('.qt-browser-line2 path', {
+		duration: 900, 
+		transition: 'inOutCubic'
+	}));
+
+	timeline.add(time(11000), fade(elem));
 }

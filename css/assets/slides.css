@@ -19,7 +19,7 @@
 }
 
 .qt-slide {
-	opacity: 0;
+	margin-top: -1000px;
 	position: absolute;
 	width: 100%;
 	top: 0;
@@ -33,7 +33,7 @@
 
 /* Slide 1 */
 [data-qt-state="slide1"] .qt-slide1 {
-	opacity: 1;
+	margin-top: 0;
 }
 
 .qt-slide1 {
@@ -44,7 +44,7 @@
 
 /* Slide 2 */
 [data-qt-state="slide2"] .qt-slide2 {
-	opacity: 1;
+	margin-top: 0;
 }
 
 .qt-slide2 {
@@ -59,7 +59,7 @@
 
 /* Slide 3 */
 [data-qt-state="slide3"] .qt-slide3 {
-	opacity: 1;
+	margin-top: 0;
 }
 
 .qt-slide3 {

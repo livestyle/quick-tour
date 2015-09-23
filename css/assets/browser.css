@@ -261,3 +261,17 @@
 	margin-top: 5px;
 	text-decoration: underline;
 }
+
+.qt-browser-line1 {
+	position: absolute;
+	left: 235px;
+	top: 111px;
+	z-index: 12;
+}
+
+.qt-browser-line2 {
+	position: absolute;
+	left: 480px;
+	top: 134px;
+	z-index: 12;
+}
