@@ -1,0 +1,53 @@
+.qt-tx {
+	font-family: 'dejavu sans mono', consolas, monospace;
+}
+
+.qt-tx-line {
+	white-space: pre;
+	line-height: 1.5;
+	height: 1.5em;
+}
+
+.qt-tx-caret::after {
+	display: inline-block;
+	width: 2px;
+	height: 1.2em;
+	content: '';
+	margin: -0.2em 1px;
+	background: currentColor;
+	vertical-align: middle;
+	animation: qt-caret-blink 0.3s infinite alternate;
+}
+
+[data-theme=light] {
+	color: #303942;
+}
+
+[data-theme=light] .qt-tx-token_1 {
+	color: #222;
+}
+
+[data-theme=light] .qt-tx-token_2 {
+	color: #C80000;
+}
+
+[data-theme=dark] {
+	color: #c0c5ce;
+}
+
+[data-theme=dark] .qt-tx-token_1 {
+	color: #bf616a;
+}
+
+[data-theme=dark] .qt-tx-token_3 {
+	color: #d08770;
+}
+
+[data-theme=dark] .qt-tx-token_4 {
+	color: #96b5b4;
+}
+
+@keyframes qt-caret-blink {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}

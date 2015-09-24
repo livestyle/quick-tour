@@ -6,51 +6,43 @@ import extend from 'xtend';
 import AbstractClip from './abstract';
 
 var defaultOptions = {
-	beforeDelay: 100,   // delay before input start
-	charInputDelay: 30, // delay between each character input
-	afterDelay: 100     // delay after all characters are putted 
+	beforeDelay: 100,          // delay before input start
+	duration: 600,             // actual text input animation duration
+	afterDelay: 100,           // delay after all characters are inserted 
+	activeClass: 'qt-tx-caret' // class name to add to element when animation is active
 };
 
 export default class TextInputClip extends AbstractClip {
 	constructor(elem, inputValue, options={}) {
 		super(elem);
-		this.initialValue = this.elem.innerHTML;
-		this._curValue = this.initialValue;
+		this._curValue = this.elem.innerHTML;
+		this.initialValue = parseText(this._curValue);
 		this.inputValue = parseText(inputValue);
 		this.options = extend(defaultOptions, options);
+		this._totalChars = this.initialValue.chars.length + this.inputValue.chars.length;
 	}
 
 	get duration() {
-		if (this._duration === null) {
-			var opt = this.options;
-			var duration = opt.beforeDelay 
-				+ this.inputValue.chars.length * opt.charInputDelay
-				+ opt.afterDelay;
-
-			if (this.initialValue) {
-				duration += opt.charInputDelay;
-			}
-			this._duration = duration;
-		}
-
-		return this._duration;
+		return this.options.beforeDelay + this.options.duration + this.options.afterDelay;
 	}
 
-	render(time) {
+	render(time, absTime=time) {
+		if (this.options.activeClass) {
+			this.elem.classList.toggle(this.options.activeClass, absTime > 0 && absTime < this.duration);
+		}
+		
 		var result = '';
 		if (time < this.options.beforeDelay) {
-			result = this.initialValue;
+			result = renderString(this.initialValue);
+		} else if (time > this.duration - this.options.afterDelay) {
+			result = renderString(this.inputValue);
 		} else {
-			var charTime = time - this.options.beforeDelay;
-			if (this.initialValue) {
-				// cut off one char tick to remove current value
-				charTime -= this.options.charInputDelay;
-				result = '';
-			}
-
-			if (charTime > 0) {
-				var totalChars = Math.min((charTime / this.options.charInputDelay)|0, this.inputValue.chars.length);
-				result = renderString(this.inputValue, totalChars);
+			time -= this.options.beforeDelay;
+			var curChar = (this._totalChars * (time / this.options.duration))|0;
+			if (curChar < this.initialValue.chars.length) {
+				result = renderString(this.initialValue, this.initialValue.chars.length - curChar);
+			} else {
+				result = renderString(this.inputValue, curChar - this.initialValue.chars.length);
 			}
 		}
 
@@ -61,12 +53,12 @@ export default class TextInputClip extends AbstractClip {
 };
 
 function renderString(parsedStr, totalChars) {
-	if (!totalChars) {
-		return '';
+	if (typeof totalChars === 'undefined' || totalChars === parsedStr.chars.length) {
+		return parsedStr.original;
 	}
 
-	if (totalChars === parsedStr.chars.length) {
-		return parsedStr.original;
+	if (!totalChars) {
+		return '';
 	}
 
 	var result = parsedStr.base;
