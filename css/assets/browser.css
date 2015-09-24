@@ -193,6 +193,19 @@
 	-webkit-font-smoothing: antialiased;
 }
 
+.qt-browser__content {
+	padding: 10px;
+	font-family: arial, sans-serif;
+	background: #fff;
+	height: 165px;
+}
+
+.qt-browser__content-el1 {
+	font-size: 3em;
+	margin-bottom: 6px;
+	font-weight: bold;
+}
+
 .qt-browser__devtools {
 	position: absolute;
 	width: 100%;
@@ -260,6 +273,10 @@
 	right: 10px;
 	margin-top: 5px;
 	text-decoration: underline;
+}
+
+.qt-browser__devtools .qt-tx {
+	padding: 7px 5px;
 }
 
 .qt-browser-line1 {

@@ -5,6 +5,7 @@
 @import url(assets/editor.css);
 @import url(assets/devices.css);
 @import url(assets/slides.css);
+@import url(assets/textarea.css);
 
 p {
 	margin-top: 0;

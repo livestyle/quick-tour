@@ -128,11 +128,12 @@ export default class Timeline extends EventEmitter {
 	render(timecode) {
 		var self = this;
 		this.clips.forEach((item, i) => {
-			var clipTime = Math.max(0, timecode - item.start);
+			var absClipTime = timecode - item.start;
+			var clipTime = Math.max(0, absClipTime);
 			if (item.duration) {
 				clipTime = Math.min(item.duration, clipTime);
 			}
-			item.clip.render(clipTime);
+			item.clip.render(clipTime, absClipTime);
 			// if (item.start >= timecode && (!duration || item.start + duration <= timecode)) {
 			// 	item.clip.render(timecode - item.start);
 			// } 

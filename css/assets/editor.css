@@ -54,3 +54,8 @@
 .qt-editor__tab[data-source="untitled"] {
 	background: #ff9a00;
 }
+
+.qt-editor .qt-tx {
+	padding: 10px;
+	font-size: 1.2em;
+}
