@@ -22,12 +22,4 @@ export default function(timeline) {
 		0: {opacity: 1},
 		500: {opacity: 0}
 	}));
-
-	timeline.add(0, new KeyframeClip(root.querySelector('.qt-browser'), {
-		0: {y: 600}
-	}));
-
-	timeline.add(0, new KeyframeClip(root.querySelector('.qt-editor'), {
-		0: {x: 700, y: 600}
-	}));
 }

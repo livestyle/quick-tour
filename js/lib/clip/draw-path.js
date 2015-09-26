@@ -13,12 +13,13 @@ var defaultOptions = {
 
 export default class DrawPathClip extends AbstractClip {
 	constructor(elem, options) {
-		super(elem);
 		if (typeof options === 'number') {
 			options = {duration: options};
 		}
+		options = options = extend(defaultOptions, options || {});
+		super(elem, options.duration);
 
-		this.options = extend(defaultOptions, options || {});
+		this.options = options;
 		if (typeof this.options.transition === 'string') {
 			if (!easings[this.options.transition]) {
 				console.warn('Unable to find "%s" easing, using "linear"', this.options.transition);
@@ -33,21 +34,10 @@ export default class DrawPathClip extends AbstractClip {
 		this.elem.style.strokeDashoffset = len;
 		this.elem.getBoundingClientRect(); // trigger layout to recalc styles
 		this.pathLength = len;
-		this._prevTime = null;
 	}
 
-	get duration() {
-		return this.options.duration;
-	}
-
-	render(time) {
-		time = Math.min(Math.max(time, 0), this.duration);
-		if (time === this._prevTime) {
-			return;
-		}
-
+	_render(time) {
 		var pos = this.options.transition(time, 0, 1, this.duration);
 		this.elem.style.strokeDashoffset = this.pathLength * (1 - pos);
-		this._prevTime = time;
 	}
 }

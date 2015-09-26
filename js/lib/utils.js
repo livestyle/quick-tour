@@ -82,7 +82,7 @@ export function setTransform(elem, transform) {
 		}).join(' ');
 	}
 
-	if (!~transform.indexOf('translateZ') && !isOldOpera) {
+	if (transform && transform !== 'none' && !~transform.indexOf('translateZ') && !isOldOpera) {
 		transform += ' translateZ(0)';
 	}
 

@@ -16,8 +16,9 @@ var defaultOptions = {
 
 export default class TextReavealClip extends AbstractClip {
 	constructor(elem, options={}) {
-		super(elem);
-		this.options = options = extend(defaultOptions, options);
+		options = extend(defaultOptions, options);
+		super(elem, options.duration);
+		this.options = options;
 		this.easing = options.easing;
 		if (typeof this.easing === 'string') {
 			this.easing = easings[this.easing];
@@ -57,12 +58,7 @@ export default class TextReavealClip extends AbstractClip {
 		this.distance = overallDistance;
 	}
 
-	get duration() {
-		return this.options.duration;
-	}
-
-	render(time) {
-		time = minmax(time, 0, this.duration);
+	_render(time) {
 		var pos = this.distance * this.easing(time, 0, 1, this.duration);
 		var offset = 0;
 		for (var i = 0, il = this.lines.length, line; i < il; i++) {

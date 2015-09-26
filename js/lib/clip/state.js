@@ -17,6 +17,7 @@ export default class StateClip extends AbstractClip {
 		})
 		.sort((a, b) => a.time - b.time);
 		this.render(0);
+		this._prevState = null;
 	}
 
 	get duration() {
@@ -26,6 +27,10 @@ export default class StateClip extends AbstractClip {
 	render(time) {
 		var keyframe = this.keyframes
 		.reduce((prev, frame) => frame.time <= time ? frame : prev, null);
-		this.elem.setAttribute('data-qt-state', keyframe ? keyframe.state : '');
+		var state = keyframe ? keyframe.state : '';
+		if (state !== this._prevState) {
+			this.elem.setAttribute('data-qt-state', state);
+			this._prevState = state;
+		}
 	}
 }

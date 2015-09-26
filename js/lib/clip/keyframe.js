@@ -19,8 +19,6 @@ export default class KeyframeClip extends AbstractClip {
 	constructor(elem, keyframes) {
 		super(elem);
 		this._keyframes = null;
-		this._duration = null;
-		this._prevTime = null;
 		this.keyframes = keyframes;
 	}
 
@@ -43,12 +41,7 @@ export default class KeyframeClip extends AbstractClip {
 		return this._duration;
 	}
 
-	render(time) {
-		time = Math.min(Math.max(0, time), this.duration);
-		if (time === this._prevTime) {
-			return;
-		}
-
+	_render(time) {
 		// split keyframes in two parts: before and after current timecode
 		var prev = {}, next = {};
 		this._keyframes.forEach(keyframe => {
@@ -65,7 +58,7 @@ export default class KeyframeClip extends AbstractClip {
 			});
 		});
 
-		// interpolate values between keyframes
+		// interpolate values between before and after keyframes
 		var transform = {}, style = {};
 		Object.keys(prev).forEach(name => {
 			var value = prev[name].value[0];
@@ -91,7 +84,6 @@ export default class KeyframeClip extends AbstractClip {
 		}
 
 		setStyle(this.elem, style, transform);
-		this._prevTime = time;
 	}
 }
 

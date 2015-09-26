@@ -1,5 +1,6 @@
 import path from 'path';
 import browserify from 'browserify';
+import babelify from 'babelify';
 import watchify from 'watchify';
 import extend from 'xtend';
 import buffer from 'vinyl-buffer';
@@ -55,8 +56,7 @@ function jsBundle(file, options={}) {
 	if (!_bundles[file.path]) {
 		options = extend({
 			debug: true,
-			detectGlobals: false,
-			transform: ['babelify']
+			detectGlobals: false
 		}, options);
 
 		if (options.standalone === true) {
@@ -73,7 +73,10 @@ function jsBundle(file, options={}) {
 		if (isWatching) {
 			b = watchify(b);
 		}
-		_bundles[file.path] = b;
+		_bundles[file.path] = b.transform(babelify.configure({
+			// externalHelpers: true,
+			// optional: ['runtime']
+		}));
 	}
 
 	return _bundles[file.path].bundle();

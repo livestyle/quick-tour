@@ -12,8 +12,10 @@ function time(value) {
 export default function(timeline) {
 	var root = timeline.elem
 	var elem = root.querySelector('.qt-slide3');
-	var text1 = elem.querySelector('#qt-slide3-tx1');
-	var text2 = elem.querySelector('#qt-slide3-tx2');
+	var text1 = '#qt-slide3-tx1';
+	var text2 = '#qt-slide3-tx2';
+	var line1 = '.qt-browser-line1 path';
+	var line2 = '.qt-browser-line2 path';
 
 	timeline.add(time(0), new KeyframeClip(root.querySelector('.qt-browser'), {
 		0:    {x: -65, y: 300, transition: 'inOutCubic'},
@@ -36,15 +38,17 @@ export default function(timeline) {
 	}));
 	timeline.add(time(6600), new TextRevealClip(text2, {duration: 1500}));
 
-	timeline.add(time(4100), new DrawPathClip('.qt-browser-line1 path', {
+	timeline.add(time(4100), new DrawPathClip(line1, {
 		duration: 900, 
 		transition: 'inOutCubic'
 	}));
 
-	timeline.add(time(8000), new DrawPathClip('.qt-browser-line2 path', {
+	timeline.add(time(8000), new DrawPathClip(line2, {
 		duration: 900, 
 		transition: 'inOutCubic'
 	}));
 
 	timeline.add(time(11000), fade(elem));
+	timeline.add(time(11000), fade(line1));
+	timeline.add(time(11000), fade(line2));
 }

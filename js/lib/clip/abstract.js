@@ -4,7 +4,7 @@
 'use strict';
 
 export default class AbstractClip {
-	constructor(elem) {
+	constructor(elem, duration=null) {
 		if (typeof elem === 'string') {
 			elem = document.querySelector(elem);
 		}
@@ -15,7 +15,8 @@ export default class AbstractClip {
 
 		this.elem = elem;
 		this._hidden = false;
-		this._duration = null;
+		this._duration = duration;
+		this._prevTime = null;
 	}
 
 	show() {
@@ -38,5 +39,18 @@ export default class AbstractClip {
 
 	get duration() {
 		return this._duration || 0;
+	}
+
+	render(time, absTime) {
+		if (time === this._prevTime) {
+			return;
+		}
+
+		this._prevTime = time;
+		this._render(time, absTime);
+
+		if (this.reset && (absTime <= 0 || (this.duration && absTime >= this.duration))) {
+			this.reset();
+		}
 	}
 };
