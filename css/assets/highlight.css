@@ -1,0 +1,16 @@
+.qt-highlight-parent {
+	position: relative;
+	display: inline-block;
+}
+
+.qt-highlight {
+	position: absolute;
+	top: -2px;
+	right: -4px;
+	bottom: -2px;
+	left: -4px;
+	border-radius: 4px;
+	background: #F1C40F;
+	z-index: -1;
+	display: inline-block;
+}

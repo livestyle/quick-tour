@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Highlight clip test</title>
+	<link rel="stylesheet" href="/css/assets/highlight.css" />
+</head>
+<body>
+	<div style="height: 100px;">
+		Hello <span class="hl">world</span>!
+	</div>
+	<input name="time" type="range" value="0" />
+	<div><button name="playback">Play</button></div>
+	<script src="../js/lib/clip/highlight.js"></script>
+	<script src="../js/clip-test.js"></script>
+	<script>
+		clipTest(new highlight('.hl', 500));
+	</script>
+</body>
+</html>
