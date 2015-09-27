@@ -65,4 +65,6 @@ export default function(timeline) {
 	timeline.add(time(kf2), new ToggleClassClip('#qt-editor-token1-1', 'qt-hidden'));
 	timeline.add(time(kf2), new ToggleClassClip('#qt-editor-token1-2', 'qt-hidden', {reverse: true}));
 	timeline.add(time(kf2), new HighlightClip('#qt-editor-token1-2'));
+
+	timeline.add(time(18500), fade(elem));
 }
