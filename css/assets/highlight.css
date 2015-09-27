@@ -13,4 +13,5 @@
 	background: #F1C40F;
 	z-index: -1;
 	display: inline-block;
+	box-shadow: 0 0 6px #F1C40F;
 }

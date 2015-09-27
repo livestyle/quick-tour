@@ -16,6 +16,9 @@ var defaultOptions = {
 
 export default class TextReavealClip extends AbstractClip {
 	constructor(elem, options={}) {
+		if (typeof options === 'number') {
+			options = {duration: options};
+		}
 		options = extend(defaultOptions, options);
 		super(elem, options.duration);
 		this.options = options;

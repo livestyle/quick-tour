@@ -15,7 +15,7 @@ const dest = './out';
 
 gulp.task('js', () => {
 	var stream;
-	return stream = gulp.src('./js/**/*.js', {base: './', read: false})
+	return stream = gulp.src('./js/*.js', {base: './', read: false})
 	.pipe(js({standalone: true})).once('error', err => stream.emit('error', err))
 	.pipe(buffer()).once('error', err => stream.emit('error', err))
 	.pipe(sourcemaps.init({loadMaps: true}))

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Follow Path clip test</title>
+	<style>
+	.qt-ball {
+		background-image: radial-gradient(50% 50%, #F8DE75 0%, rgba(241,195,15,0) 100%);
+		width: 45px;
+		height: 45px;
+		border-radius: 100%;
+		position: absolute;
+		z-index: 10;
+		left: 0;
+		top: 0;
+	}
+	</style>
+</head>
+<body>
+	<div class="qt-ball"></div>
+	<input name="time" type="range" value="0" />
+	<div><button name="playback">Play</button></div>
+	<script src="../js/lib/clip/follow-path.js"></script>
+	<script src="../js/clip-test.js"></script>
+	<script>
+		clipTest(new followPath('.qt-ball', [[694, 403], [694, 251], [628, 145], [448, 145]], 1000));
+	</script>
+</body>
+</html>

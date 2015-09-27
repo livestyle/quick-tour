@@ -8,8 +8,8 @@ export default function(clip) {
 		clip.render(+this.value);
 	});
 
+	clip.render(0);
 	document.querySelector('button[name=playback]').addEventListener('click', togglePlayback);
-
 	document.addEventListener('keydown', function(evt) {
 		if (evt.keyCode === 32) {
 			togglePlayback();

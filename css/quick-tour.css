@@ -6,6 +6,7 @@
 @import url(assets/devices.css);
 @import url(assets/slides.css);
 @import url(assets/textarea.css);
+@import url(assets/highlight.css);
 
 p {
 	margin-top: 0;
@@ -94,6 +95,34 @@ p {
 	top: 15px;
 }
 
-.qt-slide__hidden {
+.qt-browser__content[data-qt-state="edit1"] {
+	color: red;
+}
 
+.qt-browser__content[data-qt-state="edit2"] {
+	color: blue;
+}
+
+.qt-text {
+	margin: 0 0 1.5em;
+	line-height: 1.4;
+}
+
+.qt-text-header {
+	font-size: 5em;
+	margin: 0 0 0.2em;
+	line-height: 1;
+	font-weight: normal;
+	/* display: inline-block; */
+}
+
+.qt-text-subheader {
+	font-size: 1.5em;
+	line-height: 1;
+	font-weight: normal;
+	margin: 0;
+}
+
+.qt-hidden {
+	display: none;
 }

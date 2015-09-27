@@ -18,6 +18,9 @@ export default class TextInputClip extends AbstractClip {
 		this._curValue = this.elem.innerHTML;
 		this.initialValue = parseText(this._curValue);
 		this.inputValue = parseText(inputValue);
+		if (typeof options === 'number') {
+			options = {duration: options};
+		}
 		this.options = extend(defaultOptions, options);
 		this._totalChars = this.initialValue.chars.length + this.inputValue.chars.length;
 	}

@@ -13,10 +13,12 @@
 	width: 2px;
 	height: 1.2em;
 	content: '';
-	margin: -0.2em 1px;
+	margin: -0.2em -1px;
 	background: currentColor;
 	vertical-align: middle;
 	animation: qt-caret-blink 0.3s infinite alternate;
+	position: relative;
+	left: 2px;
 }
 
 [data-theme=light] {
