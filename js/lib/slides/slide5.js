@@ -13,7 +13,7 @@ function time(value) {
 }
 
 export default function(timeline) {
-	var root = timeline.elem
+	var root = timeline.elem;
 	var elem = root.querySelector('.qt-slide5');
 	var path1 = [[710, 433], [710, 251], [628, 145], [486, 145]];
 	var path2 = [[283, 125], [186, 125], [180, 375], [295, 375]];

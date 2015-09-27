@@ -4,7 +4,7 @@ import KeyframeClip from '../clip/keyframe';
 import TextRevealClip from '../clip/text-reveal';
 
 export default function(timeline) {
-	var root = timeline.elem
+	var root = timeline.elem;
 	var elem = root.querySelector('.qt-slide1');
 
 	var text1 = elem.querySelector('.qt-text-header');

@@ -10,7 +10,7 @@ function time(value) {
 }
 
 export default function(timeline) {
-	var root = timeline.elem
+	var root = timeline.elem;
 	var elem = root.querySelector('.qt-slide2');
 	var text = elem.querySelector('.qt-text');
 

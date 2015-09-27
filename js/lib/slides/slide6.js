@@ -9,7 +9,7 @@ function time(value) {
 }
 
 export default function(timeline) {
-	var root = timeline.elem
+	var root = timeline.elem;
 	var elem = root.querySelector('.qt-slide6');
 	
 	timeline.add(time(0), new KeyframeClip('.qt-browser', {
