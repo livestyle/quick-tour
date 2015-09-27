@@ -42,7 +42,8 @@
 }
 
 .qt-slide2,
-.qt-slide6 {
+.qt-slide6,
+.qt-slide7 {
 	text-align: center;
 	top: 65px;
 	width: 580px;
@@ -67,7 +68,8 @@
 	width: 350px;
 }
 
-.qt-slide6 {
+.qt-slide6,
+.qt-slide7 {
 	width: 650px;
 	left: 155px;
 }
