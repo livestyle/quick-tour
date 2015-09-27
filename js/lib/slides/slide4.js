@@ -1,6 +1,5 @@
 'use strict';
 
-import KeyframeClip from '../clip/keyframe';
 import TextRevealClip from '../clip/text-reveal';
 import TextInputClip from '../clip/text-input';
 import HighlightClip from '../clip/highlight';

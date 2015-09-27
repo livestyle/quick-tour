@@ -103,6 +103,17 @@ p {
 	color: blue;
 }
 
+.qt-browser__content[data-qt-state="edit3"] {
+	color: blue;
+	font-size: 1.3em;
+}
+
+.qt-browser__content[data-qt-state="edit4"] {
+	color: blue;
+	font-size: 1.3em;
+	background: lightpink;
+}
+
 .qt-text {
 	margin: 0 0 1.5em;
 	line-height: 1.4;
