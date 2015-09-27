@@ -31,8 +31,10 @@
 .qt-livestyle__title {
 	margin: 0;
 	font-size: 1.5em;
-	line-height: 1;
+	line-height: 36px;
 	font-weight: normal;
+	background-color: inherit;
+	white-space: nowrap;
 }
 
 .qt-livestyle__main .qt-livestyle__title {
@@ -96,8 +98,10 @@
 	top: 15px;
 	background: #e57c2c;
 	color: #fff;
-	padding: 10px;
-	margin: 0 -10px;
+	padding: 0 10px;
+	margin: 40px -10px 0;
+	height: 36px;
+	overflow: hidden;
 }
 
 .qt-livestyle__rv .qt-livestyle__toggler {
@@ -111,16 +115,16 @@
 	background: #e57c2c;
 }
 
-.qt-livestyle__toggler[data-state="disabled"] {
+.qt-livestyle__rv .qt-livestyle__toggler_disabled {
 	background: #f29a26;
 	color: #fff;
 }
 
-.qt-livestyle__toggler[data-state="disabled"]::after {
+.qt-livestyle__rv .qt-livestyle__toggler_disabled::after {
 	transform: translateX(-24px);
 }
 
-.qt-livestyle__toggler[data-state="disabled"]::before {
+.qt-livestyle__rv .qt-livestyle__toggler_disabled::before {
 	content: 'OFF';
 	transform: translateX(9px);
 }

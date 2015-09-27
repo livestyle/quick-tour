@@ -29,7 +29,7 @@ export default function(timeline) {
 	timeline.add(time(9000), new FollowPathClip('.qt-ball', path2, 1500));
 
 	var kf1 = 10500;
-	timeline.add(time(kf1), new ToggleClassClip('#qt-browser-line1', 'qt-hidden', {reverse: true}));
+	timeline.add(time(kf1), new ToggleClassClip('#qt-browser-line1', 'qt-hidden', true));
 	timeline.add(time(kf1), new HighlightClip('#qt-browser-prop1'));
 	timeline.add(time(kf1), new StateClip('.qt-browser__content', {
 		0:    '',
@@ -52,7 +52,7 @@ export default function(timeline) {
 	}));
 
 	var kf2 = 20000;
-	timeline.add(time(kf2), new ToggleClassClip('#qt-editor-line1', 'qt-hidden', {reverse: true}));
+	timeline.add(time(kf2), new ToggleClassClip('#qt-editor-line1', 'qt-hidden', true));
 	timeline.add(time(kf2), new HighlightClip('#qt-editor-prop1'));
 	timeline.add(time(23000), fade(elem));
 };

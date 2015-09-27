@@ -16,10 +16,6 @@
 	margin: 0;
 }
 
-.qt-livestyle__rv {
-	display: none;
-}
-
 .qt-ball {
 	background-image: radial-gradient(50% 50%, #F8DE75 0%, rgba(241,195,15,0) 100%);
 	width: 45px;
@@ -31,9 +27,6 @@
 	left: 0;
 	top: 0;
 }
-/* .qt-livestyle {
-	visibility: hidden;
-} */
 
 .qt-slide1,
 .qt-slide8 {
@@ -77,4 +70,11 @@
 
 .qt-slide8 {
 	margin-top: -3em;
+}
+
+.qt-slide9 {
+	width: 100%;
+	left: 0;
+	top: 180px;
+	text-align: center;
 }

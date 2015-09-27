@@ -9,6 +9,7 @@ import slide5 from './slides/slide5';
 import slide6 from './slides/slide6';
 import slide7 from './slides/slide7';
 import slide8 from './slides/slide8';
+import slide9 from './slides/slide9';
 
 export default function(timeline) {
 	timeline.add(new SlideToggleClip(timeline.elem.querySelectorAll('.qt-slide'), {
@@ -19,7 +20,8 @@ export default function(timeline) {
 		45000: 'qt-slide5',
 		69000: 'qt-slide6',
 		79000: 'qt-slide7',
-		92000: 'qt-slide8'
+		92000: 'qt-slide8',
+		96000: 'qt-slide9'
 	}));
 
 	slide1(timeline);
@@ -30,5 +32,6 @@ export default function(timeline) {
 	slide6(timeline);
 	slide7(timeline);
 	slide8(timeline);
+	slide9(timeline);
 	timeline.timecode = 0;
 };

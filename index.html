@@ -32,7 +32,7 @@
 					<span id="qt-browser-fr1" class="qt-focus-ring"></span>
 					<span id="qt-browser-fr2" class="qt-focus-ring"></span>
 					<span id="qt-browser-fr3" class="qt-focus-ring"></span>
-					<div class="qt-browser__address-bar"><span class="qt-browser__address-bar-input">localhost:8080</span></div>
+					<div class="qt-browser__address-bar"><span id="qt-browser-address-bar-tx1">localhost:8080</span><span id="qt-browser-address-bar-tx2" class="qt-hidden">localhost:8080</span></div>
 
 					<div class="qt-livestyle">
 						<section class="qt-livestyle__main">
@@ -41,9 +41,9 @@
 							<div class="qt-livestyle__browser-file">style.min.css</div>
 							<div class="qt-livestyle__editor-file">layout.css</div>
 						</section>
-						<section class="qt-livestyle__rv">
-							<h4 class="qt-livestyle__title">Remote View</h4>
-							<span class="qt-livestyle__toggler" data-state="disabled"></span>
+						<section class="qt-livestyle__rv qt-hidden">
+							<h4 class="qt-livestyle__title">Remote View<br /><span style="font-size:0.9em">some-name.livestyle.io</span></h4>
+							<span class="qt-livestyle__toggler qt-livestyle__toggler_disabled"></span>
 						</section>
 					</div>
 				</div>
@@ -93,7 +93,7 @@
 					<div class="qt-tx-line">}</div>
 				</section>
 			</div>
-
+			
 			<div class="qt-slide qt-slide_hidden qt-slide1">
 				<h3 class="qt-text-header">LiveStyle</h3>
 				<p><span class="qt-text">is a unique tool for live <em>bi-directional</em> stylesheet editing</span></p>
@@ -129,6 +129,35 @@
 
 			<div class="qt-slide qt-slide_hidden qt-slide8">
 				<h3 class="qt-text-header">Remote View</h3>
+			</div>
+
+			<div class="qt-slide qt-slide_hidden qt-slide9">
+				<p><span class="qt-text" id="qt-slide9-tx1">Remote View creates a publicly available URL that points to your local web-site.</span></p>
+				<p><span class="qt-text" id="qt-slide9-tx2">Use it to preview local web-site on any internet-connected device or browser.</span></p>
+			</div>
+
+			<div class="qt-devices">
+				<div class="qt-dev qt-dev-phone">
+					<div class="qt-dev-phone__screen"></div>
+					<span class="qt-dev-label">Mobile phone</span>
+				</div>
+				<div class="qt-dev qt-dev-tablet">
+					<div class="qt-dev-tablet__screen"></div>
+					<span class="qt-dev-label">Tablet</span>
+				</div>
+
+				<div class="qt-dev qt-dev-browser">
+					<div class="qt-dev-browser__tab"></div>
+					<div class="qt-dev-browser__address"></div>
+					<div class="qt-dev-browser__search"></div>
+					<span class="qt-dev-label">Another browser</span>
+				</div>
+
+				<div class="qt-dev qt-dev-vm">
+					<div class="qt-dev-vm__nav"></div>
+					<div class="qt-dev-vm__content"></div>
+					<span class="qt-dev-label">Virtual machine</span>
+				</div>
 			</div>
 		</div>
 	</section>

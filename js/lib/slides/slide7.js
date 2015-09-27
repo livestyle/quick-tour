@@ -14,7 +14,11 @@ export default function(timeline) {
 	var root = timeline.elem;
 	var elem = root.querySelector('.qt-slide7');
 	
-	timeline.add(time(0), new ToggleClassClip('.qt-livestyle', 'qt-hidden'));
+	timeline.add(time(0), new KeyframeClip(root.querySelector('.qt-livestyle'), {
+		0:   {scale: 1},
+		100: {scale: 0}
+	}));
+
 	timeline.add(time(0), new KeyframeClip('.qt-browser', {
 		0:    {x: -365, y: 700, rotate: -45, transition: 'inOutCubic'},
 		1500: {x: 225, y: 250, rotate: 0}
@@ -26,7 +30,7 @@ export default function(timeline) {
 	}));
 
 	timeline.add(time(500), new TextRevealClip('#qt-slide7-tx1', 1000));
-	timeline.add(time(3000), new TextInputClip('.qt-browser__address-bar-input', 'www.my-live-web-site.com', {
+	timeline.add(time(3000), new TextInputClip('#qt-browser-address-bar-tx1', 'www.my-live-web-site.com', {
 		beforeDelay: 1500,
 		afterDelay: 2000,
 		duration: 1300

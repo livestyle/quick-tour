@@ -35,7 +35,7 @@ export default function(timeline) {
 	
 	var kf1 = 8800;
 	timeline.add(time(kf1), new ToggleClassClip('#qt-browser-token1-1', 'qt-hidden'));
-	timeline.add(time(kf1), new ToggleClassClip('#qt-browser-token1-2', 'qt-hidden', {reverse: true}));
+	timeline.add(time(kf1), new ToggleClassClip('#qt-browser-token1-2', 'qt-hidden', true));
 	timeline.add(time(kf1), new HighlightClip('#qt-browser-token1-2'));
 	timeline.add(time(kf1), new StateClip('.qt-browser__content', {
 		0: '',
@@ -62,7 +62,7 @@ export default function(timeline) {
 
 	var kf2 = 15800;
 	timeline.add(time(kf2), new ToggleClassClip('#qt-editor-token1-1', 'qt-hidden'));
-	timeline.add(time(kf2), new ToggleClassClip('#qt-editor-token1-2', 'qt-hidden', {reverse: true}));
+	timeline.add(time(kf2), new ToggleClassClip('#qt-editor-token1-2', 'qt-hidden', true));
 	timeline.add(time(kf2), new HighlightClip('#qt-editor-token1-2'));
 
 	timeline.add(time(18500), fade(elem));

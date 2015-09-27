@@ -114,6 +114,16 @@ p {
 	background: lightpink;
 }
 
+.qt-devices {
+	text-align: center;
+}
+
+.qt-dev {
+	margin: 15px 35px;
+	position: relative;
+	text-align: left;
+}
+
 .qt-text {
 	margin: 0 0 1.5em;
 	line-height: 1.4;
