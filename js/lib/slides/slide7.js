@@ -33,4 +33,10 @@ export default function(timeline) {
 	}));
 
 	timeline.add(time(8000), new TextRevealClip('#qt-slide7-tx2', 1000));
+
+	timeline.add(time(11000), fade(elem));
+	timeline.add(time(11000), new KeyframeClip('.qt-browser', {
+		0:    {x: 225, y: 250, rotate: 0, transition: 'inOutCubic'},
+		1500: {x: -365, y: 700, rotate: -45}
+	}));
 };

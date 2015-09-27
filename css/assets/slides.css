@@ -35,7 +35,8 @@
 	visibility: hidden;
 } */
 
-.qt-slide1 {
+.qt-slide1,
+.qt-slide8 {
 	text-align: center;
 	top: 50%;
 	margin-top: -5em;
@@ -72,4 +73,8 @@
 .qt-slide7 {
 	width: 650px;
 	left: 155px;
+}
+
+.qt-slide8 {
+	margin-top: -3em;
 }
