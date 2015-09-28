@@ -1,5 +1,30 @@
 /* Phone */
 
+.qt-dev-sample {
+	font-size: 9px;
+	padding: 3px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	transition: background-color 0.5s;
+}
+
+.qt-dev-sample_rv-edited {
+	background: red;
+}
+
+.qt-dev-sample h5 {
+	margin: 0 0 5px;
+	font-size: 12px;
+}
+
+.qt-dev-sample p {
+	margin: 0;
+}
+
 .qt-dev-phone {
 	width: 54px;
 	height: 113px;
@@ -145,6 +170,11 @@
 .qt-dev-browser__search {
 	width: 37px;
 	left: 104px;
+}
+
+.qt-dev-browser .qt-dev-sample {
+	top: 30px;
+
 }
 
 /* VIrtual machine */

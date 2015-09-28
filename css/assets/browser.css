@@ -196,7 +196,12 @@
 	padding: 10px;
 	font-family: arial, sans-serif;
 	background: #fff;
-	height: 165px;
+	height: 300px;
+	transition: background-color 0.5s;
+}
+
+.qt-browser__content_rv-edited {
+	background: red;
 }
 
 .qt-browser__content-el1 {

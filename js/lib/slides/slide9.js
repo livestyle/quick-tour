@@ -21,11 +21,12 @@ export default function(timeline) {
 	}));
 	timeline.add(time(50), new KeyframeClip('.qt-browser', {
 		0:    {x: -365, y: 700, rotate: -45, transition: 'inOutCubic'},
-		1500: {x: -42, y: 270, rotate: 0}
+		1500: {x: 10, y: 270, rotate: 0}
 	}));
 
 	timeline.add(time(0), new ToggleClassClip('.qt-livestyle__main', 'qt-hidden'));
 	timeline.add(time(0), new ToggleClassClip('.qt-livestyle__rv', 'qt-hidden', true));
+	timeline.add(time(0), new ToggleClassClip('.qt-browser__devtools', 'qt-hidden'));
 	timeline.add(time(0), new ToggleClassClip('#qt-browser-address-bar-tx1', 'qt-hidden'));
 	timeline.add(time(0), new ToggleClassClip('#qt-browser-address-bar-tx2', 'qt-hidden', true));
 

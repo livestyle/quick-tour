@@ -72,9 +72,15 @@
 	margin-top: -3em;
 }
 
-.qt-slide9 {
+.qt-slide9,
+.qt-slide10 {
 	width: 100%;
 	left: 0;
 	top: 180px;
 	text-align: center;
+}
+
+.qt-slide10 {
+	font-size: 1.8em;
+	top: 190px;
 }
