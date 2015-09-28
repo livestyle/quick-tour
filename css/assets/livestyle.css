@@ -31,7 +31,6 @@
 .qt-livestyle__title {
 	margin: 0;
 	font-size: 1.5em;
-	line-height: 36px;
 	font-weight: normal;
 	background-color: inherit;
 	white-space: nowrap;
@@ -39,6 +38,10 @@
 
 .qt-livestyle__main .qt-livestyle__title {
 	margin-bottom: 11px;
+}
+
+.qt-livestyle__rv .qt-livestyle__title {
+	line-height: 36px;
 }
 
 .qt-livestyle__toggler {

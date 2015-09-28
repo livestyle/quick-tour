@@ -31,8 +31,7 @@
 .qt-slide1,
 .qt-slide8 {
 	text-align: center;
-	top: 50%;
-	margin-top: -5em;
+	top: 210px;
 }
 
 .qt-slide2,
@@ -69,11 +68,11 @@
 }
 
 .qt-slide8 {
-	margin-top: -3em;
 }
 
 .qt-slide9,
-.qt-slide10 {
+.qt-slide10,
+.qt-slide11 {
 	width: 100%;
 	left: 0;
 	top: 180px;
@@ -83,4 +82,9 @@
 .qt-slide10 {
 	font-size: 1.8em;
 	top: 190px;
+}
+
+.qt-slide11 {
+	top: 230px;
+	height: 310px;
 }
