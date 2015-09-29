@@ -48,6 +48,9 @@ export default function(elem, timeline) {
 
 	progress.max = timeline.duration;
 	timeline.timecode = +startTime;
+
+	debugRects(document.getElementById('qt-slide3-tx1'));
+	debugRects(document.getElementById('qt-slide3-tx2'));
 };
 
 function debugRects(elem) {
@@ -64,7 +67,8 @@ function debugRects(elem) {
 		rects = rects.concat(toArray(elem.getClientRects()));
 	}
 
-	console.log(rects);
+	console.log('root rect', rootRect);
+	console.log('rects', rects);
 
 	rects.forEach(rect => {
 		var r = document.createElement('span');

@@ -67,6 +67,7 @@ export default class TextReavealClip extends AbstractClip {
 		for (var i = 0, il = this.lines.length, line; i < il; i++) {
 			line = this.lines[i];
 			line.shade.style.visibility = pos >= line.distance ? 'hidden' : 'visible';
+			line.shade.classList.toggle('qt-shade_idle', pos <= 0 || pos >= line.distance);
 			setTransform(line.shade, {
 				translateX: minmax(pos, 0, line.distance)
 			});

@@ -1,5 +1,5 @@
 /**
- * Keyframe clip is a special clip that contains keyframes
+ * Keyframe clip contains entries with key style positions of given element
  * and interpolates values between them
  */
 'use strict';
@@ -43,6 +43,10 @@ export default class KeyframeClip extends AbstractClip {
 
 	_render(time) {
 		// split keyframes in two parts: before and after current timecode
+		// if (this.elem.classList.contains('qt-livestyle')) {
+		// 	debugger;
+		// }
+		
 		var prev = {}, next = {};
 		this._keyframes.forEach(keyframe => {
 			var dest = keyframe.time <= time ? prev : next;

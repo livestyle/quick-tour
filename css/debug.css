@@ -1,5 +1,5 @@
 .qt {
-	padding: 100px 30px;
+	padding: 100px 0px;
 }
 
 .qt-screen {
@@ -44,4 +44,5 @@
 	display: block;
 	border: 1px solid rgba(255, 0, 0, 0.5);
 	margin: -1px;
+	z-index: 30;
 }

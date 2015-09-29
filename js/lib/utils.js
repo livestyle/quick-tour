@@ -74,11 +74,12 @@ export function setTransform(elem, transform) {
 	if (typeof transform === 'object') {
 		transform = Object.keys(transform).map(k => {
 			var val = transform[k];
+			var strVal = typeof val === 'number' ? val.toFixed(5) : val;
 			if (typeof val === 'number' && unitless.indexOf(k) === -1) {
-				val += units[k] || 'px';
+				strVal += units[k] || 'px';
 			}
 
-			return k + '(' + val + ')';
+			return k + '(' + strVal + ')';
 		}).join(' ');
 	}
 
