@@ -5,7 +5,7 @@
 
 import extend from 'xtend';
 import AbstractClip from './abstract';
-import {setStyle, setTransform, toArray, createElement, minmax} from '../utils';
+import {setStyle, setTransform, toArray, createElement, removeElement, minmax} from '../utils';
 import {easings} from '../tween';
 
 var defaultOptions = {
@@ -21,8 +21,11 @@ export default class TextReavealClip extends AbstractClip {
 		}
 		options = extend(defaultOptions, options);
 		super(elem, options.duration);
+		this.distance = -1;
+		this.lines = null;
 		this.options = options;
 		this.easing = options.easing;
+		this._hidden = false;
 		if (typeof this.easing === 'string') {
 			this.easing = easings[this.easing];
 			if (!this.easing) {
@@ -31,47 +34,84 @@ export default class TextReavealClip extends AbstractClip {
 			}
 		}
 
-		// measure lines & cover them with shades
-		var parent = this.elem.offsetParent;
-		var parentRect = parent.getBoundingClientRect();
-		var overallDistance = 0;
-		this.lines = toArray(this.elem.getClientRects()).map(rect => {
-			var line = {
-				left: rect.left - parentRect.left,
-				top: rect.top - parentRect.top,
-				width: rect.right - rect.left,
-				height: rect.bottom - rect.top,
-				shade: createElement('span', 'qt-shade')
-			};
-			line.distance = line.width + options.headSize;
-			overallDistance += line.distance;
-
-			var css = Object.keys(line).reduce((result, key) => {
-				result[key] = line[key] + 'px';
-				return result;
-			}, {});
-			if (options.css) {
-				css = extend(css, options.css);
-			}
-			setStyle(line.shade, css);
-			parent.appendChild(line.shade);
-
-			return line;
-		});
-		this.distance = overallDistance;
+		this._hide();
 	}
 
 	_render(time) {
-		var pos = this.distance * this.easing(time, 0, 1, this.duration);
-		var offset = 0;
-		for (var i = 0, il = this.lines.length, line; i < il; i++) {
-			line = this.lines[i];
-			line.shade.style.visibility = pos >= line.distance ? 'hidden' : 'visible';
-			line.shade.classList.toggle('qt-shade_idle', pos <= 0 || pos >= line.distance);
-			setTransform(line.shade, {
-				translateX: minmax(pos, 0, line.distance)
-			});
-			pos -= line.distance;
+		if (time === 0) {
+			this._hide()._removeShade();
+		} else if (time === this.duration) {
+			this._show()._removeShade();
+		} else {
+			this._show()._addShade();
+			var pos = this.distance * this.easing(time, 0, 1, this.duration);
+			var offset = 0, trf = {};
+			for (var i = 0, il = this.lines.length, line; i < il; i++) {
+				line = this.lines[i];
+				trf.translateX = minmax(pos, 0, line.distance);
+				setTransform(line.elem, trf);
+				pos -= line.distance;
+			}
 		}
 	}
+
+	_hide() {
+		if (!this._hidden) {
+			this.elem.classList.add('qt-invisible');
+			this._hidden = true;
+		}
+		return this;
+	}
+
+	_show() {
+		if (this._hidden) {
+			this.elem.classList.remove('qt-invisible');
+			this._hidden = false;
+		}
+		return this;
+	}
+
+	_addShade() {
+		if (!this.lines) {
+			var parent = this.elem.offsetParent;
+			this.lines = getLines(this.elem, this.options);
+			this.distance = this.lines.reduce((d, line) => {
+				parent.appendChild(line.elem);
+				return d + line.distance;
+			}, 0);
+		}
+		return this;
+	}
+
+	_removeShade() {
+		if (this.lines) {
+			this.lines.forEach(line => removeElement(line.elem));
+			this.lines = null;
+			this.distance = -1;
+		}
+		return this;
+	}
+}
+
+/**
+ * Returns text lines rectangles for given element. Rectangles positions
+ * are calculated relative to element’s offsetParent
+ * @param  {Element} elem
+ * @return {Array}
+ */
+function getLines(elem, options) {
+	var parentRect = elem.offsetParent.getBoundingClientRect();
+	return toArray(elem.getClientRects()).map(rect => {
+		var elem = createElement('span', 'qt-shade');
+		var line = {
+			left: rect.left - parentRect.left,
+			top: rect.top - parentRect.top,
+			width: rect.right - rect.left,
+			height: rect.bottom - rect.top
+		};
+		setStyle(elem, line);
+		line.elem = elem;
+		line.distance = line.width + options.headSize;
+		return line;
+	});
 }

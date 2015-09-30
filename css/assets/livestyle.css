@@ -7,7 +7,7 @@
 	top: 63px;
 	right: 24px;
 	box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.30);
-	font-family: 'PT Sans', arial, sans-serif;
+	font-family: Lato, arial, sans-serif;
 	color: #2F485F;
 	transform-origin: 200px -5px;
 }
@@ -46,7 +46,7 @@
 
 .qt-livestyle__toggler {
 	position: absolute;
-	top: -2px;
+	top: 2px;
 	right: 0;
 	width: 40px;
 	height: 16px;
@@ -73,10 +73,11 @@
 .qt-livestyle__toggler::before {
 	content: 'ON';
 	position: absolute;
-	top: 4px;
+	top: 3px;
 	left: 9px;
 	font-size: 9px;
 	transition: transform 0.2s;
+	line-height: 1;
 }
 
 .qt-livestyle__editor-file {

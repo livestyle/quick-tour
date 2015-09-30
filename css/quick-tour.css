@@ -204,3 +204,7 @@ p {
 .qt-hidden {
 	display: none;
 }
+
+.qt-invisible {
+	visibility: hidden;
+}

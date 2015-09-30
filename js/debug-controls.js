@@ -48,16 +48,12 @@ export default function(elem, timeline) {
 
 	progress.max = timeline.duration;
 	timeline.timecode = +startTime;
-
-	debugRects(document.getElementById('qt-slide3-tx1'));
-	debugRects(document.getElementById('qt-slide3-tx2'));
 };
 
 function debugRects(elem) {
 	var rects = [];
 	var root = elem.offsetParent;
 	var rootRect = root.getBoundingClientRect();
-	// var innerElems = elem.getElementsByTagName('*');
 	var innerElems = [];
 	if (innerElems.length) {
 		for (var i = 0, il = innerElems.length; i < il; i++) {

@@ -2,6 +2,7 @@
 
 import KeyframeClip from '../clip/keyframe';
 import TextRevealClip from '../clip/text-reveal';
+import ToggleClassClip from '../clip/toggle-class';
 import focusRing from '../effects/focus-ring';
 import fade from '../effects/fade';
 
@@ -30,5 +31,9 @@ export default function(timeline) {
 	timeline.add(time(4200), focusRing('#qt-browser-fr2'));
 	timeline.add(time(4400), focusRing('#qt-browser-fr3'));
 
-	timeline.add(time(6500), fade(elem));
+	var kf1 = 6500;
+	timeline.add(time(kf1), new ToggleClassClip('#qt-browser-fr1', 'qt-hidden'));
+	timeline.add(time(kf1), new ToggleClassClip('#qt-browser-fr2', 'qt-hidden'));
+	timeline.add(time(kf1), new ToggleClassClip('#qt-browser-fr3', 'qt-hidden'));
+	timeline.add(time(kf1), fade(elem));
 }

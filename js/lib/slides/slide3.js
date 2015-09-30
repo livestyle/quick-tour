@@ -3,6 +3,7 @@
 import KeyframeClip from '../clip/keyframe';
 import TextRevealClip from '../clip/text-reveal';
 import DrawPathClip from '../clip/draw-path';
+import ToggleClassClip from '../clip/toggle-class';
 import fade from '../effects/fade';
 
 function time(value) {
@@ -48,7 +49,12 @@ export default function(timeline) {
 		transition: 'inOutCubic'
 	}));
 
-	timeline.add(time(11000), fade(elem));
-	timeline.add(time(11000), fade(line1));
-	timeline.add(time(11000), fade(line2));
+	var kf1 = 11000;
+	timeline.add(time(kf1), fade(elem));
+	timeline.add(time(kf1), fade(line1));
+	timeline.add(time(kf1), fade(line2));
+
+	var kf2 = 12000;
+	timeline.add(time(kf2), new ToggleClassClip('.qt-browser-line1', 'qt-hidden'));
+	timeline.add(time(kf2), new ToggleClassClip('.qt-browser-line2', 'qt-hidden'));
 }

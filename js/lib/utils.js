@@ -59,7 +59,13 @@ export function testProp(prop) {
  */
 export function setStyle(elem, css, transform) {
 	if (css) {
-		Object.keys(css).forEach(k => elem.style[k] = css[k]);
+		Object.keys(css).forEach(k => {
+			var val = css[k];
+			if (typeof val === 'number' && unitless.indexOf(k) === -1) {
+				val += 'px';
+			}
+			elem.style[k] = val;
+		});
 	}
 
 	if (transform) {
