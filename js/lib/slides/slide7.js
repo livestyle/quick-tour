@@ -1,5 +1,6 @@
 'use strict';
 
+import timings from './timings';
 import KeyframeClip from '../clip/keyframe';
 import TextRevealClip from '../clip/text-reveal';
 import TextInputClip from '../clip/text-input';
@@ -7,7 +8,7 @@ import ToggleClassClip from '../clip/toggle-class';
 import fade from '../effects/fade';
 
 function time(value) {
-	return value + 79000;
+	return value + timings.slide7;
 }
 
 export default function(timeline) {

@@ -1,5 +1,6 @@
 'use strict';
 
+import timings from './timings';
 import KeyframeClip from '../clip/keyframe';
 import TextRevealClip from '../clip/text-reveal';
 import ToggleClassClip from '../clip/toggle-class';
@@ -7,7 +8,7 @@ import focusRing from '../effects/focus-ring';
 import fade from '../effects/fade';
 
 function time(value) {
-	return value + 6000;
+	return value + timings.slide2;
 }
 
 export default function(timeline) {

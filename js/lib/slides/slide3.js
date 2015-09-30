@@ -1,5 +1,6 @@
 'use strict';
 
+import timings from './timings';
 import KeyframeClip from '../clip/keyframe';
 import TextRevealClip from '../clip/text-reveal';
 import DrawPathClip from '../clip/draw-path';
@@ -7,7 +8,7 @@ import ToggleClassClip from '../clip/toggle-class';
 import fade from '../effects/fade';
 
 function time(value) {
-	return value + 12000;
+	return value + timings.slide3;
 }
 
 export default function(timeline) {

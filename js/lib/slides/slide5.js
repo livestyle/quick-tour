@@ -1,5 +1,6 @@
 'use strict';
 
+import timings from './timings';
 import TextRevealClip from '../clip/text-reveal';
 import TextInputClip from '../clip/text-input';
 import HighlightClip from '../clip/highlight';
@@ -9,7 +10,7 @@ import StateClip from '../clip/state';
 import fade from '../effects/fade';
 
 function time(value) {
-	return value + 45000;
+	return value + timings.slide5;
 }
 
 export default function(timeline) {

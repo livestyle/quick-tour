@@ -1,11 +1,12 @@
 'use strict';
 
+import timings from './timings';
 import KeyframeClip from '../clip/keyframe';
 import TextRevealClip from '../clip/text-reveal';
 import fade from '../effects/fade';
 
 function time(value) {
-	return value + 69000;
+	return value + timings.slide6;
 }
 
 export default function(timeline) {
