@@ -97,7 +97,7 @@
 }
 
 .qt-browser__address-bar::after {
-	content: url(star.svg);
+	content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNyAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOC41IDEyLjc1bC00Ljk5NiAyLjYyNy45NTQtNS41NjMtNC4wNDItMy45NCA1LjU4Ni0uODEyIDIuNDk4LTUuMDYyIDIuNDk4IDUuMDYyIDUuNTg2LjgxMi00LjA0MiAzLjk0Ljk1NCA1LjU2M3oiIHN0cm9rZT0iIzg1ODU4NSIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);
 	position: absolute;
 	right: 6px;
 	top: 3px;

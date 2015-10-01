@@ -13,12 +13,16 @@
     "xtend": "^4.0.0"
   },
   "devDependencies": {
+    "autoprefixer": "^6.0.3",
     "babel-core": "^5.8.24",
     "babel-runtime": "^5.8.25",
-    "babelify": "^6.3.0",
     "browserify": "^11.1.0",
     "gulp": "^3.9.0",
-    "gulp-sourcemaps": "^1.5.2",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-postcss": "^6.0.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.4.1",
+    "postcss-import": "^7.0.0",
     "through2": "^2.0.0",
     "vinyl-buffer": "^1.0.0",
     "watchify": "^3.4.0"
