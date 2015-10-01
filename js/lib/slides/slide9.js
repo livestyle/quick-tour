@@ -22,7 +22,7 @@ export default function(timeline) {
 	}));
 	timeline.add(time(50), new KeyframeClip('.qt-browser', {
 		0:    {x: -365, y: 700, rotate: -45, transition: 'inOutCubic'},
-		1500: {x: 10, y: 270, rotate: 0}
+		2000: {x: 10, y: 270, rotate: 0}
 	}));
 
 	timeline.add(time(0), new ToggleClassClip('.qt-livestyle__main', 'qt-hidden'));
@@ -31,21 +31,21 @@ export default function(timeline) {
 	timeline.add(time(0), new ToggleClassClip('#qt-browser-address-bar-tx1', 'qt-hidden'));
 	timeline.add(time(0), new ToggleClassClip('#qt-browser-address-bar-tx2', 'qt-hidden', true));
 
-	timeline.add(time(1600), new KeyframeClip(root.querySelector('.qt-livestyle'), {
+	timeline.add(time(2100), new KeyframeClip(root.querySelector('.qt-livestyle'), {
 		0:   {scale: 0, transition: 'outBack'},
 		700: {scale: 1}
 	}));
 
-	timeline.add(time(1600), new TextRevealClip('#qt-slide9-tx1', 1500));
+	timeline.add(time(1000), new TextRevealClip('#qt-slide9-tx1', 1500));
 
-	timeline.add(time(3500), new ToggleClassClip('.qt-livestyle__rv .qt-livestyle__toggler', 'qt-livestyle__toggler_disabled', true));
-	timeline.add(time(4000), new KeyframeClip('.qt-livestyle__rv .qt-livestyle__title', {
+	timeline.add(time(4500), new ToggleClassClip('.qt-livestyle__rv .qt-livestyle__toggler', 'qt-livestyle__toggler_disabled', true));
+	timeline.add(time(5000), new KeyframeClip('.qt-livestyle__rv .qt-livestyle__title', {
 		0:   {y: 0, transition: 'outExpo'},
 		400: {y: -36}
 	}));
 
 
-	var t2 = 5500;
+	var t2 = 7500;
 	timeline.add(time(t2), new TextRevealClip('#qt-slide9-tx2', 1500));
 	var devAnim1 = sel => {
 		timeline.add(time(t2), new KeyframeClip(sel, {
@@ -60,5 +60,5 @@ export default function(timeline) {
 	devAnim1('.qt-dev-browser');
 	devAnim1('.qt-dev-vm');
 
-	timeline.add(time(10000), fade(elem));
+	timeline.add(time(12000), fade(elem));
 };

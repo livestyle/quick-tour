@@ -1,6 +1,7 @@
 'use strict';
 
 import {toggleClass} from './lib/utils';
+import timings  from './lib/slides/timings';
 
 export default function(elem, timeline) {
 	if (typeof elem === 'string') {
@@ -50,6 +51,7 @@ export default function(elem, timeline) {
 
 	progress.max = timeline.duration;
 	timeline.timecode = +startTime;
+	console.log(timings);
 };
 
 function debugRects(elem) {

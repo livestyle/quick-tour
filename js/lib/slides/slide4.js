@@ -41,30 +41,32 @@ export default function(timeline) {
 	timeline.add(time(kf1), new StateClip('.qt-browser__content', {
 		0: '',
 		500: 'edit1',
-		2800: 'edit2'
+		7500: 'edit2'
 	}));
 
 
-	timeline.add(time(10000), new TextInputClip('#qt-browser-token1-2code', 'blue', {
+	timeline.add(time(11000), new TextRevealClip(text3, 1000));
+	timeline.add(time(14000), new HighlightClip('#qt-browser-token1-2'));
+
+	timeline.add(time(14500), new TextInputClip('#qt-browser-token1-2code', 'blue', {
 		beforeDelay: 700,
 		afterDelay: 200,
 		duration: 600
 	}));
 
-	timeline.add(time(12000), new FollowPathClip('.qt-ball', path2, {
+	timeline.add(time(16500), new FollowPathClip('.qt-ball', path2, {
 		duration: 1500,
 		reverse: true
 	}));
-	timeline.add(time(13700), new FollowPathClip('.qt-ball', path1, {
+	timeline.add(time(18200), new FollowPathClip('.qt-ball', path1, {
 		duration: 2000,
 		reverse: true
 	}));
-	timeline.add(time(13700), new TextRevealClip(text3, 1500));
 
-	var kf2 = 15800;
+	var kf2 = 20300;
 	timeline.add(time(kf2), new ToggleClassClip('#qt-editor-token1-1', 'qt-hidden'));
 	timeline.add(time(kf2), new ToggleClassClip('#qt-editor-token1-2', 'qt-hidden', true));
 	timeline.add(time(kf2), new HighlightClip('#qt-editor-token1-2'));
 
-	timeline.add(time(18500), fade(elem));
+	timeline.add(time(23500), fade(elem));
 }

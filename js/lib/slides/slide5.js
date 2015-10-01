@@ -20,22 +20,23 @@ export default function(timeline) {
 	var path2 = [[283, 125], [186, 125], [180, 375], [295, 375]];
 	var path2_2 = [[283, 125], [186, 125], [180, 350], [295, 350]];
 	
-	timeline.add(time(0), new TextRevealClip('#qt-slide5-tx1', 3000));
-	timeline.add(time(5000), new TextInputClip('#qt-editor-token2', '20px', {
+	timeline.add(time(0), new TextRevealClip('#qt-slide5-tx1', 4000));
+	timeline.add(time(5500), new HighlightClip('#qt-editor-token2'));
+	timeline.add(time(6000), new TextInputClip('#qt-editor-token2code', '20px', {
 		beforeDelay: 700,
 		afterDelay: 200,
 		duration: 500
 	}));
-	timeline.add(time(6500), new FollowPathClip('.qt-ball', path1, 2000));
-	timeline.add(time(9000), new FollowPathClip('.qt-ball', path2, 1500));
+	timeline.add(time(7500), new FollowPathClip('.qt-ball', path1, 2000));
+	timeline.add(time(10000), new FollowPathClip('.qt-ball', path2, 1500));
 
-	var kf1 = 10500;
+	var kf1 = 11500;
 	timeline.add(time(kf1), new ToggleClassClip('#qt-browser-line1', 'qt-hidden', true));
 	timeline.add(time(kf1), new HighlightClip('#qt-browser-prop1'));
 	timeline.add(time(kf1), new StateClip('.qt-browser__content', {
 		0:    '',
 		500:  'edit3',
-		4300: 'edit4'
+		3300: 'edit4'
 	}));
 
 	timeline.add(time(13000), new TextInputClip('#qt-browser-token2', 'lightpink', {
@@ -55,5 +56,6 @@ export default function(timeline) {
 	var kf2 = 20000;
 	timeline.add(time(kf2), new ToggleClassClip('#qt-editor-line1', 'qt-hidden', true));
 	timeline.add(time(kf2), new HighlightClip('#qt-editor-prop1'));
-	timeline.add(time(23000), fade(elem));
+	
+	timeline.add(time(22500), fade(elem));
 };
