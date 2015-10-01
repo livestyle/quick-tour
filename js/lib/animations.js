@@ -16,7 +16,6 @@ import slide11  from './slides/slide11';
 import SlideToggleClip from './clip/slide-toggle';
 
 export default function(timeline) {
-	console.log(timings);
 	var keyframes = Object.keys(timings).reduce((obj, id) => {
 		obj[timings[id]] = 'qt-' + id;
 		return obj;

@@ -2,7 +2,7 @@
  * Toggles slide visibility on given time
  */
 'use strict';
-import {toArray} from '../utils';
+import {toArray, toggleClass} from '../utils';
 
 export default class SlideToggleClip {
 	constructor(slides, keyframes) {
@@ -28,7 +28,7 @@ export default class SlideToggleClip {
 		.reduce((prev, frame) => frame.time <= time ? frame : prev, null);
 		var className = keyframe ? keyframe.className : '';
 		if (className !== this._prevState) {
-			this.slides.forEach(slide => slide.classList.toggle('qt-slide_hidden', !className || !slide.classList.contains(className)));
+			this.slides.forEach(slide => toggleClass(slide, 'qt-slide_hidden', !className || !slide.classList.contains(className)));
 			this._prevState = className;
 		}
 	}

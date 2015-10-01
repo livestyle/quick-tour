@@ -1,5 +1,7 @@
 'use strict';
 
+import {toggleClass} from './lib/utils';
+
 export default function(elem, timeline) {
 	if (typeof elem === 'string') {
 		elem = document.querySelector(elem);
@@ -26,7 +28,7 @@ export default function(elem, timeline) {
 	var timecode = elem.querySelector('input[name="timecode"]');
 
 	timeline
-	.on('state', state => playbackBtn.classList.toggle('playing', state === 'play'))
+	.on('state', state => toggleClass(playbackBtn, 'playing', state === 'play'))
 	.on('render', time => {
 		progress.value = timecode.value = time | 0;
 	})

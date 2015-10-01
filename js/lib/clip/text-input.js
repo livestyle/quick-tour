@@ -4,6 +4,7 @@
 'use strict';
 import extend from 'xtend';
 import AbstractClip from './abstract';
+import {toggleClass} from '../utils';
 
 var defaultOptions = {
 	beforeDelay: 100,          // delay before input start
@@ -31,7 +32,7 @@ export default class TextInputClip extends AbstractClip {
 
 	render(time, absTime=time) {
 		if (this.options.activeClass) {
-			this.elem.classList.toggle(this.options.activeClass, absTime > 0 && absTime < this.duration);
+			toggleClass(this.elem, this.options.activeClass, absTime > 0 && absTime < this.duration);
 		}
 		
 		var result = '';

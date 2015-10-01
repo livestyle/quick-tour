@@ -3,6 +3,7 @@
  */
 'use strict';
 import AbstractClip from './abstract';
+import {toggleClass} from '../utils';
 
 export default class ToggleClassClip extends AbstractClip {
 	constructor(elem, className, reverse) {
@@ -17,6 +18,6 @@ export default class ToggleClassClip extends AbstractClip {
 			shouldAdd = !shouldAdd;
 		}
 
-		this.classNames.forEach(c => this.elem.classList.toggle(c, shouldAdd));
+		this.classNames.forEach(c => toggleClass(this.elem, c, shouldAdd));
 	}
 }
