@@ -2,7 +2,7 @@
   "name": "quick-tour",
   "version": "1.0.0",
   "description": "A quick tour on LiveStyle features",
-  "main": "index.js",
+  "main": "js/quick-tour.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
