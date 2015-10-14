@@ -29,7 +29,7 @@ export default function(timeline) {
 	var t2 = 5000;
 	var tabAnim1 = sel => {
 		timeline.add(time(t2), new KeyframeClip(sel, {
-			0:   {y: 30, transition: 'outExpo'},
+			0:   {y: 35, transition: 'outExpo'},
 			600: {y: 0}
 		}));
 		t2 += 250;
@@ -44,7 +44,7 @@ export default function(timeline) {
 	var tabAnim2 = sel => {
 		timeline.add(time(t3), new KeyframeClip(sel, {
 			0:   {y: 0, transition: 'outExpo'},
-			600: {y: 30}
+			600: {y: 35}
 		}));
 		t3 += 100;
 	};

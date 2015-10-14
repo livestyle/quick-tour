@@ -105,22 +105,22 @@ p {
 }
 
 .qt-browser__content[data-qt-state="edit1"] {
-	color: red;
+	color: #D55C4B;
 }
 
 .qt-browser__content[data-qt-state="edit2"] {
-	color: blue;
+	color: #4C9BD8;
 }
 
 .qt-browser__content[data-qt-state="edit3"] {
-	color: blue;
+	color: #4C9BD8;
 	font-size: 1.3em;
 }
 
 .qt-browser__content[data-qt-state="edit4"] {
-	color: blue;
+	color: #4C9BD8;
 	font-size: 1.3em;
-	background: lightpink;
+	background: #374A5D;
 	height: 170px;
 }
 

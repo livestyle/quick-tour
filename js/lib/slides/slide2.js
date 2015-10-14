@@ -25,7 +25,7 @@ export default function(timeline) {
 
 	timeline.add(time(600), new KeyframeClip(root.querySelector('.qt-editor'), {
 		0:    {x: 900, y: 700, rotate: 45, transition: 'inOutCubic'},
-		1500: {x: 550, y: 300, rotate: 0}
+		1500: {x: 580, y: 300, rotate: 0}
 	}));
 
 	timeline.add(time(4000), focusRing('#qt-browser-fr1'));

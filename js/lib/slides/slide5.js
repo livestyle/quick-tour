@@ -39,7 +39,7 @@ export default function(timeline) {
 		3300: 'edit4'
 	}));
 
-	timeline.add(time(13000), new TextInputClip('#qt-browser-token2', 'lightpink', {
+	timeline.add(time(13000), new TextInputClip('#qt-browser-token2', 'darkblue', {
 		beforeDelay: 700,
 		afterDelay: 200,
 		duration: 900

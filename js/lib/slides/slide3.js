@@ -24,11 +24,6 @@ export default function(timeline) {
 		2000: {x: 10, y: 10}
 	}));
 
-	timeline.add(time(100), new KeyframeClip(root.querySelector('.qt-editor'), {
-		0:    {x: 550, y: 300, transition: 'inOutCubic'},
-		1000: {x: 580, y: 300}
-	}));
-
 	timeline.add(time(1400), new KeyframeClip(root.querySelector('.qt-livestyle'), {
 		0:   {scale: 0, transition: 'outBack'},
 		700: {scale: 1}
